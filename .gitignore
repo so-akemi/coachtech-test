@@ -1,0 +1,6 @@
+# Dockerのデータベース実体を除外
+docker/mysql/data/
+
+# OSが生成する一時ファイルなど
+.DS_Store
+Thumbs.db
