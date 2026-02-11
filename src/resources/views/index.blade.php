@@ -1,15 +1,16 @@
 @extends('layouts.app')
 
 @section('css')
-  <link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 @endsection
 
-@section('contact')
+@section('content')
   <div class="contact-form__content">
    <div class="contact-form__heading">
      <h2>Contact</h2>
    </div>
-   <form class="form">
+   <form class="form" action="/confirm" method="post">
+    @csrf
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">お名前</span>

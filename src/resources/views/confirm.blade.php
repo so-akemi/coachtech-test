@@ -9,7 +9,8 @@
       <div class="confirm__heading">
         <h2>Confirm</h2>
       </div>
-      <form class="form">
+      <form class="form" action="/thanks" method="post">
+        @csrf
         <div class="confirm-table">
           <table class="confirm-table__inner">
             <tr class="confirm-table__row">
@@ -40,6 +41,20 @@
               <input type="hidden" name="tel1" value="{{ $contact['tel1'] }}">
               <input type="hidden" name="tel2" value="{{ $contact['tel2'] }}">
               <input type="hidden" name="tel3" value="{{ $contact['tel3'] }}">
+              </td>
+            </tr>
+            <tr class="confirm-table__row">
+              <th class="confirm-table__header">住所</th>
+              <td class="confirm-table__text">
+              {{ $contact['address'] }}
+              <input type="hidden" name="address" value="{{ $contact['address'] }}">
+              </td>
+            </tr>
+            <tr class="confirm-table__row">
+              <th class="confirm-table__header">建物</th>
+              <td class="confirm-table__text">
+              {{ $contact['building'] }}
+              <input type="hidden" name="building" value="{{ $contact['building'] }}">
               </td>
             </tr>
             <tr class="confirm-table__row">
