@@ -41,8 +41,6 @@
     width: 600px;
     border: 1px solid #ddd;
     border-radius: 3px;
-
-    appearance: none;
 }
 
 .form__input--text input {
@@ -51,6 +49,10 @@
 
 .form__input--textarea textarea {
     height: 180px;
+}
+
+.form__label--required {
+    color: red;
 }
 
 .form__button {

@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Contact;
+Use App\Http\Requests\ContactRequest;
 
 class ContactController extends Controller
 {
@@ -14,15 +15,11 @@ class ContactController extends Controller
         return view('index', compact('categories'));
     }
 
-    public function confirm(Request $request)
+    public function confirm(ContactRequest $request)
     {
         $contact = $request->all();
-        
-        // 性別の変換辞書（ビューに送る）
         $genders = [1 => '男性', 2 => '女性', 3 => 'その他'];
         $contact['gender_text'] = $genders[$request->gender] ?? '不明';
-
-        // カテゴリー名の取得（IDからcontent名に変換してビューに送ると親切です）
         $category = \App\Models\Category::find($request->category_id);
         $contact['category_content'] = $category ? $category->content : '選択なし';
 
