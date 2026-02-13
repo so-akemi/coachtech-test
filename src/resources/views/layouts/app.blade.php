@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FashionablyLate</title>
   <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+  <link rel="stylesheet" href="{{ asset('css/common.css') }}">
   @yield('css')
 </head>
 
@@ -14,8 +15,20 @@
   <header class="header">
     <div class="header__inner">
       <a class="header__logo" href="/">
-        Contact Form
+        @yield('title', 'FashionablyLate')
       </a>
+      <nav>
+          <ul class="header-nav">
+            @if (Auth::check())
+            <li class="header-nav__item">
+              <form class="form" action="/logout" method="post">
+                @csrf
+                <button class="header-nav__button">ログアウト</button>
+              </form>
+            </li>
+            @endif
+          </ul>
+      </nav>
     </div>
   </header>
 

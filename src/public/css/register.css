@@ -1,0 +1,35 @@
+.register__content {
+    margin: 0 auto;
+    padding: 30px 15px;
+    max-width: 1230px;
+}
+
+.register__heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.form {
+    margin: 0 auto;
+    width: 60%;
+    /* お問い合わせより少しスリムに */
+}
+
+/* リンクボタンの装飾 */
+.login__link {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.login__button-link {
+    text-decoration: none;
+    color: #007bff;
+    /* 青色などのリンクカラー */
+    font-size: 14px;
+}
+
+.register__content .form__group {
+    flex-direction: column;
+    /* 縦並びに強制変更 */
+    align-items: flex-start;
+}

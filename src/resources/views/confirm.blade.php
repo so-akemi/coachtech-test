@@ -4,9 +4,9 @@
   <link rel="stylesheet" href="{{ asset('css/confirm.css') }}" />
 @endsection
 
-@section('contact')
-    <div class="confirm__content">
-      <div class="confirm__heading">
+@section('content')
+    <div class="confirm-form__content">
+      <div class="confirm-form__heading">
         <h2>Confirm</h2>
       </div>
       <form class="form" action="/thanks" method="post">

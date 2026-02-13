@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-USE App\Http\Controllers\ContactController;
-
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\AuthController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
