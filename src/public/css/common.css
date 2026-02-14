@@ -2,5 +2,11 @@
     font-size: 24px;
     color: #000;
     text-decoration: none;
-    
+
+}
+
+.header-nav__button {
+    display: flex;
+    gap: 20px;
+    text-align: right;
 }

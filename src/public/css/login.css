@@ -36,3 +36,9 @@
     font-size: 14px;
     border-bottom: 1px solid #4b4b4b;
 }
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}

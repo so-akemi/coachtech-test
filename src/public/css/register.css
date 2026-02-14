@@ -33,3 +33,9 @@
     /* 縦並びに強制変更 */
     align-items: flex-start;
 }
+
+.form__error {
+    height: 20px;
+    color: #ff0000;
+    text-align: left;
+}
