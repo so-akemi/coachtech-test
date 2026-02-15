@@ -7,24 +7,35 @@
   <div class="contact-form__heading">
     <h2>Contact</h2>
   </div>
+
   <form class="form" action="/confirm" method="post">
     @csrf
     <div class="form__group">
-      <div class="form__group-title">
-        <span class="form__label--item">お名前</span>
-        <span class="form__label--required">※</span>
-      </div>
-      <div class="form__group-content">
-        <div class="form__input--text">
-          <input type="text" name="first_name" placeholder="例 山田" value="{{ old('first_name') }}" />
-          <input type="text" name="last_name" placeholder="例 太郎" value="{{ old('last_name') }}" />
-        </div>
+  <div class="form__group-title">
+    <span class="form__label--item">お名前</span>
+    <span class="form__label--required">※</span>
+  </div>
+  <div class="form__group-content">
+    <div class="form__input--text">
+      <div class="form__input--unit">
+        <input type="text" name="last_name" placeholder="例 山田" value="{{ old('last_name') }}" />
         <div class="form__error">
-          @error('first_name') <p style="color: red;">{{ $message }}</p> @enderror
-          @error('last_name') <p style="color: red;">{{ $message }}</p> @enderror
+          @error('last_name')
+            <div class="form-error">{{ $message }}</div>
+          @enderror
+        </div>
+      </div>
+      <div class="form__input--unit">
+        <input type="text" name="first_name" placeholder="例 太郎" value="{{ old('first_name') }}" />
+        <div class="form__error">
+          @error('first_name')
+            <div class="form-error">{{ $message }}</div>
+          @enderror
         </div>
       </div>
     </div>
+  </div>
+</div>
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">性別</span>
@@ -71,13 +82,15 @@
           <input type="tel" name="tel3" placeholder="5678" value="{{ old('tel3') }}" />
         </div>
         <div class="form__error">
-          @error('tel1') <p style="color: red;">{{ $message }}</p> @enderror
-          @error('tel2') <p style="color: red;">{{ $message }}</p> @enderror
-          @error('tel3') <p style="color: red;">{{ $message }}</p> @enderror
+          @if($errors->hasAny(['tel1', 'tel2', 'tel3']))
+           <p style="color: red;">
+            {{ $errors->first('tel1') ?: $errors->first('tel2') ?: $errors->first('tel3') }}
+          </p>
+          @endif
         </div>
       </div>
     </div>
-    {{-- 住所 --}}
+
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">住所</span>

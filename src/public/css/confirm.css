@@ -1,17 +1,20 @@
-.confirm__content {
+.confirm-form__content {
+    clear: both;
     margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+    padding: 60px 15px;
+    max-width: 900px;
 }
 
-.confirm__heading {
+.confirm-form__heading {
     margin-bottom: 40px;
     text-align: center;
+    font-size: 24px;
+    color: #8b7969;
 }
 
 .form {
     margin: 0 auto;
-    width: 70%;
+    width: 100%;
 }
 
 .confirm-table {
@@ -20,44 +23,65 @@
 
 .confirm-table__inner {
     width: 100%;
+    border-collapse: collapse;
 }
 
 .confirm-table__header {
     padding: 15px;
     width: 20%;
     border-bottom: 1px solid #ddd;
-    background-color: #eee;
-    font-weight: bold;
+    background-color: #bfa694;
+    font-weight: normal;
+    text-align: left;
 }
 
 .confirm-table__text {
     padding: 15px;
     border-bottom: 1px solid #ddd;
+    color: #333;
+    background-color: #fff;
 }
 
 .confirm-table__text input {
     width: 100%;
     outline: none;
     border: none;
+    background: transparent;
+    font-size: 16px;
+    color: #333;
 }
 
 .confirm-table__row:last-child .confirm-table__header,
 .confirm-table__row:last-child .confirm-table__text {
-    border-bottom-width: 0;
+    border-bottom:none;
 }
 
 .form__button {
     margin-top: 30px;
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
 }
 
 .form__button-submit {
     padding: 10px;
-    width: 30%;
+    width: 150px;
     height: 50px;
     border: none;
     border-radius: 3px;
-    background: #000;
+    background: #8b7969;
     color: #fff;
     cursor: pointer;
+}
+.form__button-submit:hover {
+    opacity: 0.8;
+}
+
+/* 修正リンク */
+.form__button-back {
+    color: #8b7969;
+    text-decoration: underline;
+    font-size: 14px;
 }

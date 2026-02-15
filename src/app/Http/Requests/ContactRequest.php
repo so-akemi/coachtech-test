@@ -33,7 +33,7 @@ class ContactRequest extends FormRequest
             'tel3' => ['required', 'numeric', 'digits_between:1,5'],
             'address' => ['required'],
             'category_id' => ['required'],
-            'contact' => ['required', 'max:120'],
+            'content' => ['required', 'max:120'],
         ];
     }
 
@@ -46,18 +46,20 @@ class ContactRequest extends FormRequest
         'email.required' => 'メールアドレスを入力してください',
         'email.email' => 'メールアドレスはメール形式で入力してください',
         'tel1.required' => '電話番号を入力してください',
-            'tel1.alpha_num' => '電話番号は半角英数字で入力してください',
-            'tel1.max' => '電話番号は5桁まで数字で入力してください',
-            'tel2.required' => '電話番号を入力してください',
-            'tel2.alpha_num' => '電話番号は半角英数字で入力してください',
-            'tel2.max' => '電話番号は5桁まで数字で入力してください',
-            'tel3.required' => '電話番号を入力してください',
-            'tel3.alpha_num' => '電話番号は半角英数字で入力してください',
-            'tel3.max' => '電話番号は5桁まで数字で入力してください',
-            'address.required' => '住所を入力してください',
-            'category_id.required' => 'お問い合わせの種類を選択してください',
-            'content.required' => 'お問い合わせ内容を入力してください',
-            'content.max' => 'お問い合わせ内容は120文字以内で入力してください',
+        'tel1.numeric' => '電話番号は半角数字で入力してください',
+        'tel1.digits_between' => '電話番号は5桁までの数字で入力してください',
+        
+        'tel2.required' => '電話番号を入力してください',
+        'tel2.numeric' => '電話番号は半角数字で入力してください',
+        'tel2.digits_between' => '電話番号は5桁までの数字で入力してください',
+        
+        'tel3.required' => '電話番号を入力してください',
+        'tel3.numeric' => '電話番号は半角数字で入力してください',
+        'tel3.digits_between' => '電話番号は5桁までの数字で入力してください',
+        'address.required' => '住所を入力してください',
+        'category_id.required' => 'お問い合わせの種類を選択してください',
+        'content.required' => 'お問い合わせ内容を入力してください',
+        'content.max' => 'お問い合わせ内容は120文字以内で入力してください',
         ];
     }
 }
