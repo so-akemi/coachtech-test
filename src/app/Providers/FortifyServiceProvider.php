@@ -15,6 +15,9 @@ use Laravel\Fortify\Fortify;
 use App\Http\Requests\RegisterRequest;
 use Laravel\Fortify\Http\Requests\LoginRequest as FortifyLoginRequest;
 use App\Http\Requests\LoginRequest;
+use Laravel\Fortify\Actions\AttemptToAuthenticate;
+use Laravel\Fortify\Actions\EnsureLoginIsNotThrottled;
+use Laravel\Fortify\Actions\PrepareAuthenticatedSession;
 
 class FortifyServiceProvider extends ServiceProvider
 {
@@ -23,7 +26,7 @@ class FortifyServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        $this->app->singleton(FortifyLoginRequest::class, LoginRequest::class);
+        //
     }
 
     /**
@@ -45,5 +48,17 @@ class FortifyServiceProvider extends ServiceProvider
 
          return Limit::perMinute(10)->by($email . $request->ip());
          });
+
+         Fortify::authenticateThrough(function (Request $request) {
+        return [
+            EnsureLoginIsNotThrottled::class,
+            function ($request, $next) {
+                app(LoginRequest::class); 
+                return $next($request);
+                },
+            AttemptToAuthenticate::class,
+            PrepareAuthenticatedSession::class,
+        ];
+    });
     }
 }

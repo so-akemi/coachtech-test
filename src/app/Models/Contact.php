@@ -8,6 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Contact extends Model
 {
     use HasFactory;
+    
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
     protected $fillable = [
         'category_id',
         'first_name',
@@ -19,4 +25,13 @@ class Contact extends Model
         'building',
         'detail',
     ];
+
+    public function getGenderLabelAttribute()
+    {
+        return [
+            1 => '男性',
+            2 => '女性',
+            3 => 'その他',
+        ][$this->gender] ?? '不明';
+    }
 }
