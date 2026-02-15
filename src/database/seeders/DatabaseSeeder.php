@@ -13,7 +13,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(CategoriesTableSeeder::class);
+        $this->call([
+            CategoriesTableSeeder::class, // または CategorySeeder::class の正しい方1つ
+            UserSeeder::class,           // 管理者ユーザーなどを作成
+        ]);
         \App\Models\Contact::factory(35)->create();
     }
 }

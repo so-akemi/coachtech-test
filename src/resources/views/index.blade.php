@@ -1,15 +1,12 @@
 @extends('layouts.app')
-
 @section('css')
   <link rel="stylesheet" href="{{ asset('css/index.css') }}" />
 @endsection
-
 @section('content')
 <div class="contact-form__content">
   <div class="contact-form__heading">
     <h2>Contact</h2>
   </div>
-
   <form class="form" action="/confirm" method="post">
     @csrf
     <div class="form__group">
@@ -28,7 +25,6 @@
         </div>
       </div>
     </div>
-
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">性別</span>
@@ -45,7 +41,6 @@
         </div>
       </div>
     </div>
-
     {{-- メールアドレス --}}
     <div class="form__group">
       <div class="form__group-title">
@@ -61,7 +56,6 @@
         </div>
       </div>
     </div>
-
     {{-- 電話番号 --}}
     <div class="form__group">
       <div class="form__group-title">
@@ -83,7 +77,6 @@
         </div>
       </div>
     </div>
-
     {{-- 住所 --}}
     <div class="form__group">
       <div class="form__group-title">
@@ -99,7 +92,6 @@
         </div>
       </div>
     </div>
-
     {{-- 建物 --}}
     <div class="form__group">
       <div class="form__group-title">
@@ -111,7 +103,6 @@
         </div>
       </div>
     </div>
-
     {{-- お問い合わせの種類 --}}
     <div class="form__group">
       <div class="form__group-title">
@@ -134,7 +125,6 @@
         </div>
       </div>
     </div>
-
     {{-- お問い合わせ内容 --}}
     <div class="form__group">
       <div class="form__group-title">
@@ -150,7 +140,6 @@
         </div>
       </div>
     </div>
-
     <div class="form__button">
       <button class="form__button-submit" type="submit">確認画面</button>
     </div>

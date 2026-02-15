@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Contact;
 use App\Models\Category;
+use Illuminate\Support\Facades\DB;
 
 class AdminController extends Controller
 {
@@ -16,11 +17,11 @@ class AdminController extends Controller
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
             $query->where(function($q) use ($keyword) {
-          $q->where('first_name', 'like', '%' .$keyword. '%')
-          ->orWhere('last_name', 'like', '%' . $keyword . '%')
-          ->orWhere('email', 'like', '%' . $keyword . '%')
-          ->orWhere(\DB::raw('CONCAT(last_name, first_name)'), 'like', '%' . $keyword . '%');
-    });
+                $q->where('first_name', 'like', '%' . $keyword . '%')
+                  ->orWhere('last_name', 'like', '%' . $keyword . '%')
+                  ->orWhere('email', 'like', '%' . $keyword . '%')
+                  ->orWhere(DB::raw('CONCAT(last_name, first_name)'), 'like', '%' . $keyword . '%');
+            });
         }
 
         if ($request->filled('gender')) {
@@ -35,19 +36,20 @@ class AdminController extends Controller
             $query->whereDate('created_at', $request->date);
         }
 
-        $contacts = $query->latest()->paginate(7)->appends($request->all());;
+        // paginateのあとの ;; を修正
+        $contacts = $query->latest()->paginate(7)->appends($request->all());
         $categories = Category::all();
 
         return view('admin.index', compact('contacts', 'categories'));
     }
-
     public function destroy($id)
     {
-    $contact = Contact::findOrFail($id);
-    $contact->delete();
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
 
-    return redirect('/admin')->with('message', '削除しました');
+        return redirect('/admin')->with('message', '削除しました');
     }
+
     public function export(Request $request)
     {
         $query = Contact::with('category');
@@ -58,7 +60,7 @@ class AdminController extends Controller
                 $q->where('first_name', 'like', '%' . $keyword . '%')
                   ->orWhere('last_name', 'like', '%' . $keyword . '%')
                   ->orWhere('email', 'like', '%' . $keyword . '%')
-                  ->orWhere(\DB::raw('CONCAT(last_name, first_name)'), 'like', '%' . $keyword . '%');
+                  ->orWhere(DB::raw('CONCAT(last_name, first_name)'), 'like', '%' . $keyword . '%');
             });
         }
 
@@ -85,12 +87,12 @@ class AdminController extends Controller
                 fputcsv($file, [
                     $contact->id,
                     $contact->last_name . $contact->first_name,
-                    $contact->gender_label,
+                    $contact->gender_label, // ModelにAccessorがある前提
                     $contact->email,
                     $contact->tel,
                     $contact->address,
                     $contact->building,
-                    $contact->category->content,
+                    $contact->category->content ?? '', // null安全のために ?? '' を追加
                     $contact->detail,
                 ]);
             }

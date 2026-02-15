@@ -1,3 +1,10 @@
+.admin__heading {
+    color: #8b7969;
+    font-size: 25px;
+    text-align: center;
+    margin: 40px 0;
+}
+
 .admin__content {
     padding: 20px;
 }
@@ -6,20 +13,100 @@
     margin-bottom: 20px;
 }
 
+.search-form__button-submit {
+    background: #8b7969;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.search-form__button-reset {
+    background: #a6907d;
+    color: #fff;
+    text-decoration: none;
+    margin-left: 10px;
+    padding: 10px 20px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.export-btn {
+    background-color: #e0dfde;
+    color: #8b7969;
+    text-decoration: none;
+    padding: 8px 20px;
+    font-size: 14px;
+}
+
 .admin-table {
     width: 100%;
     border-collapse: collapse;
+    margin-top: 20px;
 }
 
-.admin-table th,
-.admin-table td {
-    padding: 15px;
-    border-bottom: 1px solid #eee;
+.admin-table__header {
+    background-color: #8b7969;
+    color: #fff;
     text-align: left;
 }
 
+.admin-table__header th {
+    padding: 15px;
+    font-weight: normal;
+}
+
+.admin-table__row td {
+    padding: 15px;
+    border-bottom: 1px solid #eee;
+    color: #555;
+}
+
+.detail-btn {
+    border: 1px solid #e0dfde;
+    background-color: #fff;
+    color: #d9bb9a;
+    text-decoration: none;
+    padding: 5px 15px;
+    font-size: 10px;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+    list-style: none;
+    gap: 0;
+    padding: 0;
+}
+
+.pagination li {
+    margin-left: -1px;
+    border: 1px solid #e0dfde;
+}
+
+.pagination li a,
+.pagination li span {
+    display: block;
+    padding: 8px 12px;
+    color: #8b7969;
+    text-decoration: none;
+    background-color: #fff;
+}
+
+/* 選択中のページ（アクティブ）の設定 */
+.pagination li.active span {
+    background-color: #8b7969 !important;
+    color: #fff !important;
+    border-color: #8b7969;
+}
+
+.pagination .active {
+    background-color: #8b7969;
+    color: #fff;
+}
+
 .modal-overlay {
-    display: none !important;
+    display: none;
     position: fixed;
     top: 0;
     left: 0;
@@ -38,9 +125,12 @@
 .modal-window {
     background: #fff;
     width: 600px;
-    padding: 60px;
+    max-width: 90%;
+    padding: 40px;
     position: relative;
+    border-radius: 2px;
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    z-index: 10001;
 }
 
 .modal-close-btn {
@@ -55,17 +145,6 @@
     line-height: 28px;
     text-decoration: none;
     color: #999;
-}
-
-.modal-window {
-    background-color: #ffffff;
-    width: 600px;
-    max-width: 90%;
-    padding: 40px;
-    position: relative;
-    border-radius: 2px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-    z-index: 10001;
 }
 
 .modal-table {
