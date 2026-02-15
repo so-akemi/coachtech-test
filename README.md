@@ -25,9 +25,7 @@
 - Docker / Docker Compose
 
 ## ER図
-
-![ER図の画像パス（またはここにMermaid記法などで記述）]
-## URL
+![ER図](docs/er-diagram.png)
 
 - 開発環境：http://localhost/
 - お問い合わせ画面：http://localhost/
@@ -43,8 +41,3 @@
 - 管理画面：詳細モーダル表示
 - 管理画面：データ削除機能
 - 管理画面：CSVエクスポート機能
-
-## テストユーザー情報
-
-- メールアドレス：admin@example.com
-- パスワード：password123

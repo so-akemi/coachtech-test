@@ -1,14 +1,11 @@
-/* 全体レイアウト */
 .admin__content {
     padding: 20px;
 }
 
-/* 検索フォーム */
 .search-form {
     margin-bottom: 20px;
 }
 
-/* テーブルスタイル */
 .admin-table {
     width: 100%;
     border-collapse: collapse;
@@ -21,10 +18,8 @@
     text-align: left;
 }
 
-/* モーダルの制御（ここが重要！） */
 .modal-overlay {
     display: none;
-    /* 通常時は非表示 */
     position: fixed;
     top: 0;
     left: 0;
@@ -34,7 +29,6 @@
     z-index: 9999;
 }
 
-/* URLの末尾に #modal-ID が付いた時に表示される魔法のコード */
 .modal-overlay:target {
     display: flex;
     align-items: center;
@@ -63,7 +57,17 @@
     color: #999;
 }
 
-/* モーダル内テーブル */
+.modal-window {
+    background-color: #ffffff;
+    width: 600px;
+    max-width: 90%;
+    padding: 40px;
+    position: relative;
+    border-radius: 2px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 10001;
+}
+
 .modal-table {
     width: 100%;
     margin-bottom: 30px;
