@@ -30,8 +30,11 @@ class ContactController extends Controller
     {
         $contact = $request->all();
         $contact['tel'] = $request->tel1 . $request->tel2 . $request->tel3;
+        if ($request->has('detail')) {
+        $contact['detail'] = $request->detail;
+        } elseif ($request->has('content')) {
         $contact['detail'] = $request->content;
-        $contact['detail'] = $request->content;
+        }
         Contact::create($contact);
         return view('thanks');
     }
