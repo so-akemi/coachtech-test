@@ -25,7 +25,7 @@
 - Docker / Docker Compose
 
 ## ER図
-![ER図](docs/er-diagram.png)
+![ER図](docs/er-diagram.drawio.pngpng)
 
 - 開発環境：http://localhost/
 - お問い合わせ画面：http://localhost/
