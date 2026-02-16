@@ -11,31 +11,31 @@
   <form class="form" action="/confirm" method="post">
     @csrf
     <div class="form__group">
-  <div class="form__group-title">
-    <span class="form__label--item">お名前</span>
-    <span class="form__label--required">※</span>
-  </div>
-  <div class="form__group-content">
-    <div class="form__input--text">
-      <div class="form__input--unit">
+     <div class="form__group-title">
+      <span class="form__label--item">お名前</span>
+      <span class="form__label--required">※</span>
+     </div>
+     <div class="form__group-content">
+      <div class="form__input--text">
+       <div class="form__input--unit">
         <input type="text" name="last_name" placeholder="例 山田" value="{{ old('last_name') }}" />
         <div class="form__error">
           @error('last_name')
             <div class="form-error">{{ $message }}</div>
           @enderror
         </div>
-      </div>
-      <div class="form__input--unit">
+       </div>
+       <div class="form__input--unit">
         <input type="text" name="first_name" placeholder="例 太郎" value="{{ old('first_name') }}" />
         <div class="form__error">
           @error('first_name')
             <div class="form-error">{{ $message }}</div>
           @enderror
         </div>
+       </div>
       </div>
+     </div>
     </div>
-  </div>
-</div>
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">性別</span>
@@ -52,7 +52,6 @@
         </div>
       </div>
     </div>
-    {{-- メールアドレス --}}
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">メールアドレス</span>
@@ -67,7 +66,6 @@
         </div>
       </div>
     </div>
-    {{-- 電話番号 --}}
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">電話番号</span>
@@ -90,7 +88,6 @@
         </div>
       </div>
     </div>
-
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">住所</span>
@@ -105,7 +102,6 @@
         </div>
       </div>
     </div>
-    {{-- 建物 --}}
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">建物</span>
@@ -116,7 +112,6 @@
         </div>
       </div>
     </div>
-    {{-- お問い合わせの種類 --}}
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">お問い合わせの種類</span>
@@ -138,7 +133,6 @@
         </div>
       </div>
     </div>
-    {{-- お問い合わせ内容 --}}
     <div class="form__group">
       <div class="form__group-title">
         <span class="form__label--item">お問い合わせ内容</span>

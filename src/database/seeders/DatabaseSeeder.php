@@ -14,8 +14,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call([
-            CategoriesTableSeeder::class, // または CategorySeeder::class の正しい方1つ
-            UserSeeder::class,           // 管理者ユーザーなどを作成
+            CategoriesTableSeeder::class,
+            UserSeeder::class,
         ]);
         \App\Models\Contact::factory(35)->create();
     }

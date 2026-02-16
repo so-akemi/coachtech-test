@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-<div class="admin__content">
+ <div class="admin__content">
   <div class="admin__heading">
     <h2>Admin</h2>
   </div>
@@ -52,7 +52,7 @@
     </tr>
     @foreach ($contacts as $contact)
     <tr class="admin-table__row">
-      <td>{{ $contact->first_name }} {{ $contact->last_name }}</td>
+      <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
       <td>{{ $contact->gender_label }}</td>
       <td>{{ $contact->email }}</td>
       <td>{{ $contact->category->content }}</td>
@@ -90,5 +90,5 @@
     </tr>
     @endforeach
   </table>
-</div>
+ </div>
 @endsection
