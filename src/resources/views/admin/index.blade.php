@@ -57,13 +57,10 @@
       <td>{{ $contact->email }}</td>
       <td>{{ $contact->category->content }}</td>
       <td>
-
         <a class="detail-btn" href="#modal-{{ $contact->id }}">詳細</a>
-
         <div id="modal-{{ $contact->id }}" class="modal-overlay">
           <div class="modal-window">
             <a href="#" class="modal-close-btn">✕</a>
-
             <div class="modal-inner">
               <table class="modal-table">
                 <tr><th>お名前</th><td>{{ $contact->last_name }} {{ $contact->first_name }}</td></tr>

@@ -16,8 +16,8 @@ class AdminController extends Controller
 
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
-            $query->where(function($q) use ($keyword) {
-                $q->where('first_name', 'like', '%' . $keyword . '%')
+            $query->where(function($qry) use ($keyword) {
+                $qry->where('first_name', 'like', '%' . $keyword . '%')
                   ->orWhere('last_name', 'like', '%' . $keyword . '%')
                   ->orWhere('email', 'like', '%' . $keyword . '%')
                   ->orWhere(DB::raw('CONCAT(last_name, first_name)'), 'like', '%' . $keyword . '%');
@@ -36,7 +36,6 @@ class AdminController extends Controller
             $query->whereDate('created_at', $request->date);
         }
 
-        // paginateのあとの ;; を修正
         $contacts = $query->latest()->paginate(7)->appends($request->all());
         $categories = Category::all();
 
@@ -56,8 +55,8 @@ class AdminController extends Controller
 
         if ($request->filled('keyword')) {
             $keyword = $request->keyword;
-            $query->where(function($q) use ($keyword) {
-                $q->where('first_name', 'like', '%' . $keyword . '%')
+            $query->where(function($qry) use ($keyword) {
+                $qry->where('first_name', 'like', '%' . $keyword . '%')
                   ->orWhere('last_name', 'like', '%' . $keyword . '%')
                   ->orWhere('email', 'like', '%' . $keyword . '%')
                   ->orWhere(DB::raw('CONCAT(last_name, first_name)'), 'like', '%' . $keyword . '%');
@@ -87,12 +86,12 @@ class AdminController extends Controller
                 fputcsv($file, [
                     $contact->id,
                     $contact->last_name . $contact->first_name,
-                    $contact->gender_label, // ModelにAccessorがある前提
+                    $contact->gender_label,
                     $contact->email,
                     $contact->tel,
                     $contact->address,
                     $contact->building,
-                    $contact->category->content ?? '', // null安全のために ?? '' を追加
+                    $contact->category->content ?? '',
                     $contact->detail,
                 ]);
             }

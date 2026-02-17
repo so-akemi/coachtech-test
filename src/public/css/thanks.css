@@ -1,12 +1,32 @@
 .thanks__content {
+    position: relative;
     margin: 0 auto;
-    padding: 30px 15px;
-    max-width: 1230px;
+    padding: 0;
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+/*　.thanks__content::beforeを使うとHTMLを変更せずに背景に大きなテキストを表示できる　*/
+.thanks__content::before {
+    content: "Thank you";
+    position: absolute;
+    color: #f4f4f4;
+    font-size: 14vw;
+    font-weight: bold;
+    font-family: 'serif';
+    z-index: -1;
+    /* メッセージより後ろに配置 */
+    white-space: nowrap;
 }
 
 .thanks__heading {
     margin-bottom: 40px;
     text-align: center;
+    color: #8a7868;
 }
 
 .thanks__button {
