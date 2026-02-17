@@ -36,15 +36,19 @@ php artisan key:generate
 ※.envファイルが権限エラーで保存できない場合は、以下コマンドを実施してください。(srcディレクトリ直下)
 
 - sudo chown -R $USER:$USER .
-- chmod 664 .env
+- chmod 664 .env  
+(コマンド実行後、ファイルの変更を保存してください)
 
 #### 設定変更後はPHPコンテナ内にて下記コマンドを実行してください。
 - php artisan config:clear
 - php artisan cache:clear
 
-
 #### マイグレーションとシーディングを実行  
-- php artisan migrate:fresh --seed
+- php artisan migrate:fresh --seed  
+※エラーが発生した場合は、下記コマンドでコンテナ再起動後、再度php artisan config:clear～php artisan migrate:fresh --seedを実行してください。
+- docker-compose down
+- docker-compose up -d
+
 
 ### 4. ディレクトリ権限の設定
 #### ファイルの書き込みエラーを防ぐため、コンテナ内の src ディレクトリにて以下の権限付与を実行してください。
