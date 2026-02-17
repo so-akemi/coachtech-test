@@ -12,31 +12,39 @@
 
 ### 2. Laravel環境構築
 #### コンテナ内に入り、依存関係のインストールと初期設定を行います。
-- コンテナ内に入る
+- コンテナ内に入る  
 docker-compose exec php bash
-- Laravelルートへ移動
-cd src
-- 依存関係のインストール
+- 依存関係のインストール  
 composer install
-- 環境設定ファイルの作成
+- 環境設定ファイルの作成  
 cp .env.example .env
-- アプリケーションキーの生成
+- アプリケーションキーの生成  
 php artisan key:generate
 
 ### 3. データベース接続設定と構築
-- .envファイルの設定  
+####  .envファイルの設定  
 ※DB_HOST は 127.0.0.1 ではなく、Dockerサービス名の mysql を指定してください。
 
    <.envファイル>  
-DB_CONNECTION=mysql  
-DB_HOST=mysql  
-DB_PORT=3306  
-DB_DATABASE=laravel_db  
-DB_USERNAME=laravel_user  
-DB_PASSWORD=laravel_pass  
+    DB_CONNECTION=mysql  
+    DB_HOST=mysql  
+    DB_PORT=3306  
+    DB_DATABASE=laravel_db  
+    DB_USERNAME=laravel_user  
+    DB_PASSWORD=laravel_pass  
 
-- マイグレーションとシーディングを実行  
-php artisan migrate:fresh --seed
+※.envファイルが権限エラーで保存できない場合は、以下コマンドを実施してください。(srcディレクトリ直下)
+
+- sudo chown -R $USER:$USER .
+- chmod 664 .env
+
+#### 設定変更後はPHPコンテナ内にて下記コマンドを実行してください。
+- php artisan config:clear
+- php artisan cache:clear
+
+
+#### マイグレーションとシーディングを実行  
+- php artisan migrate:fresh --seed
 
 ### 4. ディレクトリ権限の設定
 #### ファイルの書き込みエラーを防ぐため、コンテナ内の src ディレクトリにて以下の権限付与を実行してください。
