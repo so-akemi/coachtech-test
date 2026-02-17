@@ -47,7 +47,7 @@
       <th>お名前</th>
       <th>性別</th>
       <th>メールアドレス</th>
-      <th>お問い合わせの種類</th>
+      <th>お問い合わせ内容</th>
       <th></th>
     </tr>
     @foreach ($contacts as $contact)
@@ -55,7 +55,7 @@
       <td>{{ $contact->last_name }} {{ $contact->first_name }}</td>
       <td>{{ $contact->gender_label }}</td>
       <td>{{ $contact->email }}</td>
-      <td>{{ $contact->category->content }}</td>
+      <td>{{ Str::limit($contact->detail, 30, '...') }}</td>
       <td>
         <a class="detail-btn" href="#modal-{{ $contact->id }}">詳細</a>
         <div id="modal-{{ $contact->id }}" class="modal-overlay">

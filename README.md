@@ -11,10 +11,10 @@
 **Laravel環境構築**
 - docker-compose exec php bash
 - composer install
-- cp .env.example .env（環境変数を適宜変更）
+- cp .env.example .env
+- .env 内のDB_で始まる項目（DATABASE, USERNAME, PASSWORD）を、自身のDocker環境の設定に合わせて書き換えてください。
 - php artisan key:generate
-- php artisan migrate
-- php artisan db:seed
+- php artisan migrate --seed
 
 ## 使用技術（実行環境）
 
@@ -43,10 +43,9 @@
 - 管理画面：CSVエクスポート機能
 
 ## テスト用ログイン情報
-データベース構築（`php artisan db:seed`）後、以下のアカウントでログインして管理画面が確認できます。
+データベース構築（`php artisan db:seed`）後、以下のユーザーと35件のテストデータが生成されます。
+生成された以下のユーザーデータでログインして管理画面が確認できます。
 
 - 管理画面URL：`http://localhost/admin`
-- メールアドレス：（UserSeeder.php に記載したメールアドレス）
-- パスワード：（UserSeeder.php で Hash::make()内に記載したパスワード）
-
-※ 実行後、検索機能のテスト用に35件のダミーお問い合わせデータが自動生成されます。
+- メールアドレス：test123@example.com
+- パスワード：coachtech135

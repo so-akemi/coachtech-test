@@ -95,7 +95,6 @@
 
 .pagination li.active span {
     background-color: #8b7969 !important;
-    /*　!importantを使用すると、CSS優先順位のルールを無視してそのプロパティを最優先で適用する  */
     color: #fff !important;
     border-color: #8b7969;
 }

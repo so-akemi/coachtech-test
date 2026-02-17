@@ -14,10 +14,10 @@ class ContactFactory extends Factory
     public function definition()
     {
         return [
-            'category_id' => $this->faker->numberBetween(1, 5), // 1〜5のカテゴリID
+            'category_id' => $this->faker->numberBetween(1, 5),
             'first_name' => $this->faker->firstName,
             'last_name' => $this->faker->lastName,
-            'gender' => $this->faker->numberBetween(1, 3), // 1:男性, 2:女性, 3:その他
+            'gender' => $this->faker->numberBetween(1, 3),
             'email' => $this->faker->unique()->safeEmail,
             'tel' => $this->faker->phoneNumber,
             'address' => $this->faker->address,

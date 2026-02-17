@@ -82,7 +82,13 @@
 
 .form__button-back {
     color: #8b7969;
+    border: none;
+    background: none;
     text-decoration: underline;
     font-size: 15px;
     margin-left: 20px;
+}
+
+.form__button-back:hover {
+    opacity: 0.8;
 }

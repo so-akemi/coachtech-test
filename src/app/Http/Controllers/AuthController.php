@@ -20,5 +20,9 @@ class AuthController extends Controller
             $request->session()->regenerate();
             return redirect('/admin');
         }
+
+        return back()->withErrors([
+        'login' => 'ログイン情報が登録されていません',
+        ])->withInput();
     }
 }

@@ -11,7 +11,7 @@ class ContactController extends Controller
 {
     public function index()
     {
-        $categories = \App\Models\Category::all();    
+        $categories = Category::all();    
         return view('index', compact('categories'));
     }
 

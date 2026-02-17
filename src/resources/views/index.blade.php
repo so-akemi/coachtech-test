@@ -8,7 +8,7 @@
     <h2>Contact</h2>
   </div>
 
-  <form class="form" action="/confirm" method="post">
+  <form class="form" action="/confirm" method="post" novalidate>
     @csrf
     <div class="form__group">
      <div class="form__group-title">
@@ -135,7 +135,7 @@
     </div>
     <div class="form__group">
       <div class="form__group-title">
-        <span class="form__label--item">お問い合わせ内容</span>
+        <span class="form__label--item">お問い合わせの内容</span>
         <span class="form__label--required">※</span>
       </div>
       <div class="form__group-content">

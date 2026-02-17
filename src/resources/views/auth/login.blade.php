@@ -10,7 +10,7 @@
         <h2>Login</h2>
       </div>
       <div class="login-form__inner">
-       <form class="login-form" action="/login" method="post">
+       <form class="login-form" action="/login" method="post" novalidate>
         @csrf
         <div class="login-form__group">
          <div class="login-form__group-title">
@@ -42,6 +42,14 @@
            @enderror
           </div>
          </div>
+        </div>
+
+        <div class="login-form__error">
+          @error('login')
+            <p class="error-message" style="color: red; text-align: center; margin-bottom: 10px;">
+              {{ $message }}
+            </p>
+          @enderror
         </div>
 
         <div class="login-form__button">
