@@ -4,18 +4,43 @@
 
 ## 環境構築
 
-**Dockerビルド**
-- git clone [git@github.com:so-akemi/coachtech-test.git]
+### 1. リポジトリのクローンと起動
+#### Dockerビルド
+- git clone git@github.com:so-akemi/coachtech-test.git
 - cd coachtech-test
 - docker-compose up -d --build
 
-**Laravel環境構築**
-- docker-compose exec php bash
-- composer install
-- cp .env.example .env
-- .env 内のDB_で始まる項目（DATABASE, USERNAME, PASSWORD）を、自身のDocker環境の設定に合わせて書き換えてください。
-- php artisan key:generate
-- php artisan migrate --seed
+### 2. Laravel環境構築
+#### コンテナ内に入り、依存関係のインストールと初期設定を行います。
+- コンテナ内に入る
+docker-compose exec php bash
+- Laravelルートへ移動
+cd src
+- 依存関係のインストール
+composer install
+- 環境設定ファイルの作成
+cp .env.example .env
+- アプリケーションキーの生成
+php artisan key:generate
+
+### 3. データベース接続設定と構築
+- .envファイルの設定  
+※DB_HOST は 127.0.0.1 ではなく、Dockerサービス名の mysql を指定してください。
+
+   <.envファイル>  
+DB_CONNECTION=mysql  
+DB_HOST=mysql  
+DB_PORT=3306  
+DB_DATABASE=laravel_db  
+DB_USERNAME=laravel_user  
+DB_PASSWORD=laravel_pass  
+
+- マイグレーションとシーディングを実行  
+php artisan migrate:fresh --seed
+
+### 4. ディレクトリ権限の設定
+#### ファイルの書き込みエラーを防ぐため、コンテナ内の src ディレクトリにて以下の権限付与を実行してください。
+- chmod -R 777 storage bootstrap/cache
 
 ## 使用技術（実行環境）
 
